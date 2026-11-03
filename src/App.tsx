@@ -1,6 +1,7 @@
 import React from 'react';
 import { ThemeProvider } from './context/ThemeContext';
 import { CustomCursor } from './components/CustomCursor';
+import { AnimatedBackground } from './components/AnimatedBackground';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
@@ -14,6 +15,9 @@ export const App: React.FC = () => {
   return (
     <ThemeProvider>
       <div className="relative min-h-screen bg-atelier-bg text-atelier-text selection:bg-[#4B78FF]/30 selection:text-white transition-colors duration-500 overflow-x-hidden">
+        {/* Interactive Animated Electric Blue Particle & Aurora Background */}
+        <AnimatedBackground />
+
         {/* Custom interactive cursor for desktop */}
         <CustomCursor />
 
@@ -21,7 +25,7 @@ export const App: React.FC = () => {
         <Navbar />
 
         {/* Main Content Sections */}
-        <main>
+        <main className="relative z-10">
           {/* Hero Section with Real Photo & 3-Column Experience Stats */}
           <Hero />
 
