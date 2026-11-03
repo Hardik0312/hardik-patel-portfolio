@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, Menu, X } from 'lucide-react';
 import { ThemeToggle } from './ThemeToggle';
 
 export const Navbar: React.FC = () => {
@@ -8,23 +8,27 @@ export const Navbar: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 40);
+      setScrolled(window.scrollY > 20);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const navLinks = [
-    { name: 'WORK', href: '#work' },
-    { name: 'ABOUT', href: '#about' },
-    { name: 'EXPERTISE', href: '#expertise' },
-    { name: 'SERVICES', href: '#services' },
-    { name: 'CONTACT', href: '#contact' },
+    { name: 'Home', href: '#home' },
+    { name: 'Work', href: '#work' },
+    { name: 'About', href: '#about' },
+    { name: 'Services', href: '#services' },
+    { name: 'Contact', href: '#contact' },
   ];
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     setMobileMenuOpen(false);
+    if (href === '#home') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
     const target = document.querySelector(href);
     if (target) {
       target.scrollIntoView({ behavior: 'smooth' });
@@ -32,43 +36,38 @@ export const Navbar: React.FC = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 sm:px-6 pt-4 transition-all duration-300">
-      <nav
-        className={`w-full max-w-6xl mx-auto flex items-center justify-between transition-all duration-500 rounded-full border ${
-          scrolled
-            ? 'py-2.5 px-5 bg-[#050505]/80 dark:bg-[#050505]/80 light:bg-[#F5F3EE]/85 border-white/10 dark:border-white/10 light:border-black/10 backdrop-blur-xl shadow-2xl scale-[0.98]'
-            : 'py-4 px-6 bg-[#0A0A0C]/50 dark:bg-[#0A0A0C]/50 light:bg-white/60 border-white/5 dark:border-white/5 light:border-black/5 backdrop-blur-md'
-        }`}
-      >
-        {/* Brand / Name */}
+    <header className="fixed top-0 left-0 right-0 z-50 bg-atelier-bg/85 backdrop-blur-md border-b border-atelier-border transition-all duration-300">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 h-16 sm:h-20 flex items-center justify-between">
+        
+        {/* Left: HP / Hardik Patel */}
         <a
-          href="#"
-          className="group flex items-center space-x-2.5 font-bold tracking-tight text-sm uppercase text-atelier-text focus:outline-none"
+          href="#home"
+          onClick={(e) => handleNavClick(e, '#home')}
+          className="flex items-center space-x-2 text-atelier-text font-black tracking-tight text-lg group focus:outline-none"
         >
-          <span className="w-2 h-2 rounded-full bg-[#C8A96B] group-hover:scale-125 transition-transform duration-300"></span>
-          <span className="font-display tracking-widest text-xs sm:text-sm font-extrabold">
-            HARDIK PATEL
+          <span className="w-8 h-8 rounded-lg bg-atelier-accent text-white flex items-center justify-center font-bold text-xs shadow-md shadow-[#4B78FF]/30 group-hover:scale-105 transition-transform">
+            HP
           </span>
-          <span className="hidden md:inline-block text-[10px] font-mono tracking-widest text-[#C8A96B] dark:text-[#C8A96B] light:text-[#8A6A32] opacity-75 border-l border-white/10 dark:border-white/10 light:border-black/10 pl-2">
-            ATELIER
+          <span className="font-extrabold text-sm sm:text-base tracking-tight">
+            Hardik Patel
           </span>
         </a>
 
-        {/* Desktop Navigation Links */}
-        <div className="hidden md:flex items-center space-x-8 text-xs font-semibold tracking-widest text-atelier-secondary">
+        {/* Center: Home | Work | About | Contact */}
+        <nav className="hidden md:flex items-center space-x-1 p-1 rounded-full border border-atelier-border bg-atelier-surface/50">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
               onClick={(e) => handleNavClick(e, link.href)}
-              className="relative transition-colors duration-200 hover:text-[#C8A96B] dark:hover:text-[#C8A96B] light:hover:text-[#8A6A32] py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-[#C8A96B] hover:after:w-full after:transition-all after:duration-300"
+              className="px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide text-atelier-secondary hover:text-atelier-accent transition-colors duration-200"
             >
               {link.name}
             </a>
           ))}
-        </div>
+        </nav>
 
-        {/* Right Action Bar */}
+        {/* Right: Theme Toggle & LET'S TALK ↗ */}
         <div className="flex items-center space-x-3 sm:space-x-4">
           <ThemeToggle />
 
@@ -76,52 +75,45 @@ export const Navbar: React.FC = () => {
             href="#contact"
             onClick={(e) => handleNavClick(e, '#contact')}
             data-cursor="TALK"
-            className="hidden sm:inline-flex items-center space-x-2 text-xs font-bold tracking-widest uppercase px-4 py-2 rounded-full bg-[#C8A96B] text-black hover:bg-[#d8bc80] transition-all duration-300 transform hover:-translate-y-0.5 shadow-md shadow-[#C8A96B]/20"
+            className="hidden sm:inline-flex items-center space-x-2 px-5 py-2 rounded-full border border-atelier-border hover:border-atelier-accent bg-atelier-surface/50 hover:bg-atelier-accent hover:text-white text-xs font-bold tracking-wider uppercase transition-all duration-300 transform hover:-translate-y-0.5 text-atelier-text shadow-sm"
           >
             <span>LET'S TALK</span>
-            <ArrowUpRight size={14} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            <ArrowUpRight size={14} />
           </a>
 
           {/* Mobile menu button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle navigation menu"
-            className="md:hidden p-2 text-atelier-text rounded-full hover:bg-white/5 transition-colors focus:outline-none"
+            aria-label="Toggle navigation"
+            className="md:hidden p-2 text-atelier-text rounded-lg hover:bg-white/5 transition-colors focus:outline-none"
           >
             {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
-      </nav>
 
-      {/* Mobile Drawer Menu */}
+      </div>
+
+      {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
-        <div className="md:hidden fixed inset-x-4 top-20 p-6 rounded-3xl bg-[#0A0A0C]/95 dark:bg-[#0A0A0C]/95 light:bg-[#F5F3EE]/95 border border-white/10 dark:border-white/10 light:border-black/10 backdrop-blur-2xl shadow-2xl z-50 flex flex-col space-y-5 animate-in fade-in slide-in-from-top-4 duration-300">
-          <div className="flex flex-col space-y-4">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={(e) => handleNavClick(e, link.href)}
-                className="text-base font-bold tracking-widest text-atelier-text hover:text-[#C8A96B] transition-colors py-2 border-b border-white/5 dark:border-white/5 light:border-black/5"
-              >
-                {link.name}
-              </a>
-            ))}
-          </div>
-
-          <div className="pt-2 flex flex-col space-y-3">
+        <div className="md:hidden border-b border-atelier-border bg-atelier-bg/95 backdrop-blur-xl px-6 py-5 flex flex-col space-y-4 animate-in fade-in slide-in-from-top-2 duration-200">
+          {navLinks.map((link) => (
             <a
-              href="#contact"
-              onClick={(e) => handleNavClick(e, '#contact')}
-              className="w-full flex items-center justify-center space-x-2 text-center text-xs font-bold tracking-widest uppercase py-3 rounded-full bg-[#C8A96B] text-black"
+              key={link.name}
+              href={link.href}
+              onClick={(e) => handleNavClick(e, link.href)}
+              className="text-base font-bold text-atelier-text hover:text-atelier-accent transition-colors py-1"
             >
-              <span>LET'S WORK TOGETHER</span>
-              <ArrowUpRight size={14} />
+              {link.name}
             </a>
-            <div className="text-center font-mono text-[11px] text-atelier-muted">
-              phardik.1293@gmail.com · +91 8238778874
-            </div>
-          </div>
+          ))}
+          <a
+            href="#contact"
+            onClick={(e) => handleNavClick(e, '#contact')}
+            className="w-full py-3 rounded-xl bg-atelier-accent text-white text-xs font-bold tracking-wider uppercase text-center flex items-center justify-center space-x-2 mt-2"
+          >
+            <span>LET'S TALK</span>
+            <ArrowUpRight size={15} />
+          </a>
         </div>
       )}
     </header>

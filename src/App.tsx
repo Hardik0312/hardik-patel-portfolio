@@ -4,12 +4,8 @@ import { CustomCursor } from './components/CustomCursor';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
-import { ExperienceHighlight } from './components/ExperienceHighlight';
-import { Projects } from './components/Projects';
-import { Expertise } from './components/Expertise';
-import { Toolkit } from './components/Toolkit';
-import { Experience } from './components/Experience';
 import { Services } from './components/Services';
+import { Projects } from './components/Projects';
 import { Process } from './components/Process';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
@@ -17,47 +13,35 @@ import { Footer } from './components/Footer';
 export const App: React.FC = () => {
   return (
     <ThemeProvider>
-      <div className="relative min-h-screen bg-atelier-bg text-atelier-text selection:bg-[#C8A96B]/30 selection:text-white transition-colors duration-500 overflow-x-hidden">
-        {/* Custom interactive cursor (desktop only) */}
+      <div className="relative min-h-screen bg-atelier-bg text-atelier-text selection:bg-[#4B78FF]/30 selection:text-white transition-colors duration-500 overflow-x-hidden">
+        {/* Custom interactive cursor for desktop */}
         <CustomCursor />
 
-        {/* Floating Capsule Navigation */}
+        {/* Slim Horizontal Header */}
         <Navbar />
 
         {/* Main Content Sections */}
         <main>
-          {/* Asymmetrical Cinematic Hero */}
+          {/* Hero Section with Real Photo & 3-Column Experience Stats */}
           <Hero />
 
-          {/* 01 / About Section */}
+          {/* Section 5: Introduction */}
           <About />
 
-          {/* Oversized Experience Highlight (03+ Years) */}
-          <ExperienceHighlight />
-
-          {/* 02 / Selected Work with Filters & Modals */}
-          <Projects />
-
-          {/* 03 / Expertise Rows */}
-          <Expertise />
-
-          {/* 04 / Toolkit & Technical Stack */}
-          <Toolkit />
-
-          {/* 05 / Experience Breakdown */}
-          <Experience />
-
-          {/* How I Can Help (Services) */}
+          {/* Section 7: Services (3 Premium Cards inspired by reference) */}
           <Services />
 
-          {/* 06 / Process Timeline */}
+          {/* Section 8: Selected Projects (6 Real Alternating Projects) */}
+          <Projects />
+
+          {/* Development Delivery Process */}
           <Process />
 
-          {/* 07 / Full-Width Premium CTA & Contact Form */}
+          {/* Section 10: Dramatic Contact CTA & Inquiry Form */}
           <ContactSection />
         </main>
 
-        {/* Large Editorial Footer */}
+        {/* Section 11: Editorial Footer */}
         <Footer />
       </div>
     </ThemeProvider>

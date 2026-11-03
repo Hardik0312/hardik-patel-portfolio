@@ -17,13 +17,13 @@ export default {
           secondary: 'var(--text-secondary)',
           muted: 'var(--text-muted)',
           border: 'var(--border-color)',
-          accent: 'var(--accent-gold)',
-          purple: 'var(--accent-purple)',
+          accent: 'var(--accent-blue)',
+          softblue: 'var(--soft-blue)',
         }
       },
       fontFamily: {
-        sans: ['Manrope', 'Inter', 'sans-serif'],
-        display: ['Manrope', 'sans-serif'],
+        sans: ['Plus Jakarta Sans', 'Manrope', 'Inter', 'sans-serif'],
+        display: ['Plus Jakarta Sans', 'Manrope', 'sans-serif'],
         mono: ['Geist Mono', 'monospace'],
       },
       letterSpacing: {
@@ -35,6 +35,7 @@ export default {
       animation: {
         'pulse-subtle': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         'float-slow': 'float 6s ease-in-out infinite',
+        'spin-slow': 'spin 20s linear infinite',
       },
       keyframes: {
         float: {

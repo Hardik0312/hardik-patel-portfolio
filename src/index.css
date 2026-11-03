@@ -3,36 +3,39 @@
 @tailwind utilities;
 
 :root {
-  --bg-primary: #050505;
-  --bg-secondary: #0A0A0C;
-  --bg-card: #111114;
-  --bg-elevated: #17171B;
+  /* Default: Dark Mode */
+  --bg-primary: #08090D;
+  --bg-secondary: #11131A;
+  --bg-card: #141722;
+  --bg-elevated: #1B1F2E;
   --text-primary: #F5F5F5;
   --text-secondary: #A1A1AA;
-  --text-muted: #707078;
-  --border-color: rgba(255, 255, 255, 0.10);
-  --accent-gold: #C8A96B;
-  --accent-purple: #8B5CF6;
-  --theme-transition: background-color 0.6s cubic-bezier(0.16, 1, 0.3, 1), color 0.6s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  --text-muted: #717582;
+  --border-color: #292C35;
+  --accent-blue: #4B78FF;
+  --accent-glow: rgba(75, 120, 255, 0.25);
+  --soft-blue: rgba(75, 120, 255, 0.10);
+  --theme-transition: background-color 0.5s cubic-bezier(0.16, 1, 0.3, 1), color 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 html.light {
-  --bg-primary: #F5F3EE;
-  --bg-secondary: #ECEAE4;
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F8FAFF;
   --bg-card: #FFFFFF;
-  --bg-elevated: #FDFCFB;
-  --text-primary: #111111;
-  --text-secondary: #686868;
-  --text-muted: #8E8E93;
-  --border-color: #D9D6D0;
-  --accent-gold: #8A6A32;
-  --accent-purple: #7C3AED;
+  --bg-elevated: #F0F4FF;
+  --text-primary: #090909;
+  --text-secondary: #666666;
+  --text-muted: #8E92A0;
+  --border-color: #DADADA;
+  --accent-blue: #2962FF;
+  --accent-glow: rgba(41, 98, 255, 0.20);
+  --soft-blue: #EAF0FF;
 }
 
 body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  font-family: 'Manrope', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Plus Jakarta Sans', 'Manrope', sans-serif;
   transition: var(--theme-transition);
   overflow-x: hidden;
 }
@@ -49,61 +52,34 @@ body {
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-gold);
+  background: var(--accent-blue);
 }
 
-/* Fine grid pattern for atelier aesthetic */
-.atelier-grid {
-  background-size: 40px 40px;
-  background-image: 
-    linear-gradient(to right, rgba(200, 169, 107, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(200, 169, 107, 0.03) 1px, transparent 1px);
-}
-
-.light .atelier-grid {
-  background-image: 
-    linear-gradient(to right, rgba(138, 106, 50, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(138, 106, 50, 0.04) 1px, transparent 1px);
-}
-
-/* Subtle atmospheric lighting glow */
-.atelier-glow {
-  position: absolute;
+/* Electric blue mist / stippled spray effect inspired by reference */
+.blue-spray-glow {
+  background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+  filter: blur(60px);
   pointer-events: none;
-  filter: blur(120px);
-  border-radius: 50%;
-  opacity: 0.15;
 }
 
-/* Perspective utilities for 3D hero */
-.perspective-1000 {
-  perspective: 1000px;
-}
-.preserve-3d {
-  transform-style: preserve-3d;
+.stipple-overlay {
+  background-image: radial-gradient(rgba(75, 120, 255, 0.15) 1px, transparent 0);
+  background-size: 24px 24px;
 }
 
-/* Text stroke utility */
-.text-outline {
-  -webkit-text-stroke: 1px var(--border-color);
-  color: transparent;
+.light .stipple-overlay {
+  background-image: radial-gradient(rgba(41, 98, 255, 0.12) 1px, transparent 0);
 }
 
-/* Fluid typography clamp utilities */
-.text-editorial-hero {
-  font-size: clamp(2.4rem, 6.2vw, 5.8rem);
-  line-height: 1.04;
-  letter-spacing: -0.035em;
-}
-
-.text-editorial-title {
-  font-size: clamp(2rem, 4.5vw, 4rem);
-  line-height: 1.08;
-  letter-spacing: -0.03em;
-}
-
-.text-editorial-huge {
-  font-size: clamp(3rem, 10vw, 9.5rem);
-  line-height: 0.95;
+/* Editorial responsive typography */
+.text-reference-hero {
+  font-size: clamp(2.8rem, 7.5vw, 6.2rem);
+  line-height: 1.0;
   letter-spacing: -0.04em;
+}
+
+.text-section-heading {
+  font-size: clamp(2.2rem, 5vw, 4.2rem);
+  line-height: 1.05;
+  letter-spacing: -0.035em;
 }

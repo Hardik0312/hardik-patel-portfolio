@@ -66,10 +66,10 @@ export const CustomCursor: React.FC = () => {
       <div
         className={`flex items-center justify-center rounded-full font-mono font-bold tracking-widest text-[10px] uppercase transition-all duration-300 ${
           cursorText
-            ? 'w-16 h-16 bg-[#C8A96B] text-black shadow-xl scale-100 ring-2 ring-white/20'
+            ? 'w-16 h-16 bg-[#4B78FF] text-white shadow-xl scale-100 ring-2 ring-white/30'
             : isHovered
-            ? 'w-8 h-8 bg-white/20 border border-white/40 backdrop-blur-sm scale-110'
-            : 'w-3 h-3 bg-[#C8A96B] shadow-md shadow-[#C8A96B]/50'
+            ? 'w-8 h-8 bg-[#4B78FF]/20 border border-[#4B78FF]/60 backdrop-blur-sm scale-110'
+            : 'w-3 h-3 bg-[#4B78FF] shadow-md shadow-[#4B78FF]/50'
         }`}
       >
         {cursorText && (

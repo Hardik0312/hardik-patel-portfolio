@@ -1,105 +1,94 @@
 import React from 'react';
-import { ArrowDownRight, CheckCircle2 } from 'lucide-react';
+import { Mail, Phone, MapPin, ArrowUpRight, Github, ExternalLink } from 'lucide-react';
+import { PERSONAL_INFO } from '../data/portfolioData';
 
 export const About: React.FC = () => {
   return (
-    <section id="about" className="relative py-28 sm:py-36 border-t border-white/5 dark:border-white/5 light:border-black/5 bg-[#050505] dark:bg-[#050505] light:bg-[#F5F3EE]">
+    <section id="about" className="py-20 sm:py-28 border-b border-atelier-border bg-atelier-bg">
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
         
-        {/* Section Header */}
-        <div className="flex items-center space-x-3 mb-12 sm:mb-16">
-          <span className="font-mono text-xs tracking-ultra text-[#C8A96B] dark:text-[#C8A96B] light:text-[#8A6A32] font-semibold">
-            01 / ABOUT
-          </span>
-          <span className="h-[1px] w-12 bg-[#C8A96B]/40" />
-        </div>
-
-        {/* Big Editorial Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
-          {/* Main Statement */}
+          {/* Left Column: Heading and Editorial Description */}
           <div className="lg:col-span-8">
-            <h2 className="text-editorial-title font-bold text-atelier-text leading-tight mb-8">
-              "Technology meets visual experience."
+            <span className="text-xs font-mono font-bold tracking-widest text-atelier-accent uppercase mb-3 block">
+              HELLO, I'M HARDIK.
+            </span>
+
+            <h2 className="text-section-heading font-black text-atelier-text mb-6">
+              "Turning ideas into functional digital experiences."
             </h2>
 
-            <div className="space-y-6 text-lg sm:text-xl text-atelier-secondary font-normal leading-relaxed">
-              <p>
-                I'm a web developer with <strong className="font-semibold text-atelier-text">3+ years of hands-on experience</strong> working across <span className="text-[#C8A96B] dark:text-[#C8A96B] light:text-[#8A6A32] font-semibold">WordPress, Shopify and PHP</span>. I focus on building responsive, reliable and business-focused websites that provide a strong user experience.
-              </p>
-              <p>
-                My work includes ecommerce development, business websites, website maintenance, content implementation, hosting and website improvements. Every build is treated with precision: writing clean code, structuring accessible layouts, and making sure the digital presence performs seamlessly in real business conditions.
-              </p>
-            </div>
+            <p className="text-base sm:text-lg text-atelier-secondary leading-relaxed mb-6 font-normal">
+              I'm a web developer with <strong className="text-atelier-text font-semibold">3+ years of experience</strong> working across <span className="text-atelier-accent font-semibold">Shopify, WordPress and PHP</span>. I enjoy building responsive websites, improving ecommerce experiences and maintaining professional business websites.
+            </p>
 
-            {/* Core Values / Working Philosophy */}
-            <div className="mt-12 pt-8 border-t border-white/10 dark:border-white/10 light:border-black/10 grid grid-cols-1 sm:grid-cols-3 gap-6">
-              <div className="flex items-start space-x-3">
-                <CheckCircle2 size={18} className="text-[#C8A96B] flex-shrink-0 mt-1" />
-                <div>
-                  <h4 className="text-sm font-bold text-atelier-text tracking-wide mb-1 uppercase font-display">Business First</h4>
-                  <p className="text-xs text-atelier-muted leading-relaxed">Websites engineered around real conversion paths and measurable user clarity.</p>
-                </div>
-              </div>
-              <div className="flex items-start space-x-3">
-                <CheckCircle2 size={18} className="text-[#C8A96B] flex-shrink-0 mt-1" />
-                <div>
-                  <h4 className="text-sm font-bold text-atelier-text tracking-wide mb-1 uppercase font-display">Clean Code</h4>
-                  <p className="text-xs text-atelier-muted leading-relaxed">Modular Liquid & PHP structures that are easy to maintain and scale.</p>
-                </div>
-              </div>
-              <div className="flex items-start space-x-3">
-                <CheckCircle2 size={18} className="text-[#C8A96B] flex-shrink-0 mt-1" />
-                <div>
-                  <h4 className="text-sm font-bold text-atelier-text tracking-wide mb-1 uppercase font-display">Rock-Solid Support</h4>
-                  <p className="text-xs text-atelier-muted leading-relaxed">Ongoing maintenance, updates, backups and swift technical turnaround.</p>
-                </div>
-              </div>
+            <p className="text-sm sm:text-base text-atelier-muted leading-relaxed mb-8">
+              Based in Gujarat, India, I collaborate with brands, business owners, and digital agencies to deliver clean code, mobile-first responsiveness, and dependable technical execution.
+            </p>
+
+            {/* Email & Contact links */}
+            <div className="flex flex-wrap items-center gap-4">
+              <a
+                href={`mailto:${PERSONAL_INFO.email}`}
+                className="inline-flex items-center space-x-2 px-5 py-2.5 rounded-full bg-atelier-accent text-white text-xs font-bold tracking-wider uppercase hover:opacity-95 transition-opacity"
+              >
+                <Mail size={14} />
+                <span>{PERSONAL_INFO.email}</span>
+              </a>
+
+              <a
+                href="https://github.com/Hardik0312"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center space-x-2 px-5 py-2.5 rounded-full border border-atelier-border bg-atelier-surface hover:border-atelier-accent text-atelier-text text-xs font-bold tracking-wider uppercase transition-colors"
+              >
+                <Github size={14} />
+                <span>GitHub Profile</span>
+                <ArrowUpRight size={13} className="text-atelier-accent" />
+              </a>
             </div>
           </div>
 
-          {/* Right Column: Editorial Details Card */}
-          <div className="lg:col-span-4 p-8 rounded-3xl bg-[#0A0A0C] dark:bg-[#0A0A0C] light:bg-[#ECEAE4] border border-white/10 dark:border-white/10 light:border-black/10">
-            <div className="text-[11px] font-mono tracking-widest uppercase text-[#C8A96B] mb-6 flex items-center justify-between">
-              <span>DEVELOPER PROFILE</span>
-              <ArrowDownRight size={14} />
-            </div>
+          {/* Right Column: Key Attributes */}
+          <div className="lg:col-span-4 p-8 rounded-3xl border border-atelier-border bg-atelier-surface/80 backdrop-blur-sm">
+            <h3 className="text-xs font-mono font-bold tracking-widest uppercase text-atelier-accent mb-6">
+              QUICK INFORMATION
+            </h3>
 
-            <div className="space-y-6">
-              <div>
-                <div className="text-[10px] font-mono uppercase tracking-wider text-atelier-muted">LOCATION</div>
-                <div className="text-base font-bold text-atelier-text mt-0.5">Gujarat, India</div>
+            <div className="space-y-5 text-sm">
+              <div className="flex items-start space-x-3">
+                <MapPin size={18} className="text-atelier-accent flex-shrink-0 mt-0.5" />
+                <div>
+                  <div className="text-xs font-mono text-atelier-muted uppercase">Location</div>
+                  <div className="font-bold text-atelier-text">Gujarat, India</div>
+                </div>
               </div>
 
-              <div>
-                <div className="text-[10px] font-mono uppercase tracking-wider text-atelier-muted">EXPERIENCE</div>
-                <div className="text-base font-bold text-atelier-text mt-0.5">3+ Years Professional Practice</div>
+              <div className="flex items-start space-x-3">
+                <Phone size={18} className="text-atelier-accent flex-shrink-0 mt-0.5" />
+                <div>
+                  <div className="text-xs font-mono text-atelier-muted uppercase">Phone / WhatsApp</div>
+                  <a href={`tel:${PERSONAL_INFO.phone.replace(/\s+/g, '')}`} className="font-bold text-atelier-text hover:text-atelier-accent transition-colors">
+                    {PERSONAL_INFO.phone}
+                  </a>
+                </div>
               </div>
 
-              <div>
-                <div className="text-[10px] font-mono uppercase tracking-wider text-atelier-muted">SPECIALIZATION</div>
-                <div className="text-base font-bold text-atelier-text mt-0.5">Shopify Liquid · WordPress · PHP</div>
-              </div>
-
-              <div>
-                <div className="text-[10px] font-mono uppercase tracking-wider text-atelier-muted">DIRECT CONTACT</div>
-                <a
-                  href="mailto:phardik.1293@gmail.com"
-                  className="block text-sm font-mono text-[#C8A96B] hover:underline mt-0.5"
-                >
-                  phardik.1293@gmail.com
-                </a>
-                <a
-                  href="tel:+918238778874"
-                  className="block text-sm font-mono text-atelier-secondary hover:text-atelier-text mt-0.5"
-                >
-                  +91 8238778874
-                </a>
+              <div className="flex items-start space-x-3">
+                <Mail size={18} className="text-atelier-accent flex-shrink-0 mt-0.5" />
+                <div>
+                  <div className="text-xs font-mono text-atelier-muted uppercase">Primary Email</div>
+                  <a href={`mailto:${PERSONAL_INFO.email}`} className="font-bold text-atelier-text hover:text-atelier-accent transition-colors font-mono text-xs">
+                    {PERSONAL_INFO.email}
+                  </a>
+                </div>
               </div>
             </div>
           </div>
 
         </div>
+
       </div>
     </section>
   );
